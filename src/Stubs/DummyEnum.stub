@@ -1,0 +1,9 @@
+<?php
+
+namespace {{DummyEnumNameSpace}};
+
+use Medianet\APIToolKit\Enum\Enum;
+
+class {{DummyEnum}} extends Enum
+{
+}

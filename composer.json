@@ -1,0 +1,65 @@
+{
+    "name": "medianet-dev/api-tool-kit",
+    "description": "Set of tools to build an api with laravel",
+    "keywords": [
+        "laravel",
+        "api",
+        "filters",
+        "dynamic-pagination",
+        "tools",
+        "api-generator"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Amal Baatout",
+            "email": "baatout.amal1@gmail.com"
+        },
+        {
+            "name": "Yassine Mechiche",
+            "email": "mechicheyassine@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0|^8.1",
+        "illuminate/support": "^8.0|^9.0|^10.0",
+        "illuminate/http": "^8.0|^9.0|^10.0",
+        "illuminate/database": "^8.0|^9.0|^10.0",
+        "illuminate/container": "^8.0|^9.0|^10.0",
+        "illuminate/auth": "^8.0|^9.0|^10.0"
+    },
+    "require-dev": {
+        "tightenco/duster": "^1.2",
+        "orchestra/testbench": "^6.0|^7.0|^8.0",
+        "phpunit/phpunit": "^9.6"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Medianet\\APIToolKit\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Medianet\\APIToolKit\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Medianet\\APIToolKit\\APIToolKitServiceProvider",
+                "Medianet\\APIToolKit\\MacroServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "fix-style": "./vendor/bin/duster fix",
+        "check-code": "./vendor/bin/duster lint",
+        "test": "./vendor/bin/phpunit"
+    }
+}

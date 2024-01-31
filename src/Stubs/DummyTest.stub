@@ -1,0 +1,114 @@
+<?php
+
+namespace {{DummyTestNameSpace}};
+
+use Tests\TestCase;
+use App\Models\User;
+use {{DummyModelWithNameSpace}};
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class {{DummyTest}} extends TestCase
+{
+    use  RefreshDatabase;
+
+    protected string $endpoint = '{{baseUrlPrefix}}/{{dummies}}';
+    protected string $tableName = '{{dummies}}';
+
+    public function setUp(): void
+    {
+        parent::setUp();
+    }
+
+    public function testCreate{{Dummy}}(): void
+    {
+        $this->actingAs(User::factory()->create());
+
+        $payload = {{DummyModel}}::factory()->make([])->toArray();
+
+        $this->json('POST', $this->endpoint, $payload)
+             ->assertStatus(201)
+             ->assertSee($payload['name']);
+
+        $this->assertDatabaseHas($this->tableName, ['id' => 1]);
+    }
+
+    public function testViewAll{{Dummies}}Successfully(): void
+    {
+        $this->actingAs(User::factory()->create());
+
+        {{DummyModel}}::factory(5)->create();
+
+        $this->json('GET', $this->endpoint)
+             ->assertStatus(200)
+             ->assertJsonCount(5, 'data')
+             ->assertSee({{DummyModel}}::find(rand(1, 5))->name);
+    }
+
+    public function testsCreate{{Dummy}}Validation(): void
+    {
+        $this->actingAs(User::factory()->create());
+
+        $data = [
+        ];
+
+        $this->json('post', $this->endpoint, $data)
+             ->assertStatus(422);
+    }
+
+    public function testView{{Dummy}}Data(): void
+    {
+        $this->actingAs(User::factory()->create());
+
+        {{DummyModel}}::factory()->create();
+
+        $this->json('GET', $this->endpoint.'/1')
+             ->assertSee({{DummyModel}}::first()->name)
+             ->assertStatus(200);
+    }
+
+    public function testDelete{{Dummy}}(): void
+    {
+        $this->actingAs(User::factory()->create());
+
+        {{DummyModel}}::factory()->create();
+
+        $this->json('DELETE', $this->endpoint.'/1')
+             ->assertStatus(204);
+
+        $this->assertEquals(0, {{DummyModel}}::count());
+    }
+    @if('soft-delete')
+    public function testRestore{{Dummy}}(): void
+    {
+        $this->actingAs(User::factory()->create());
+
+        {{DummyModel}}::factory()->create();
+
+        $this->json('DELETE', $this->endpoint.'/1')
+             ->assertStatus(204);
+
+        $this->json('GET', $this->endpoint.'/1/restore')
+             ->assertStatus(200);
+
+        $this->assertDatabaseHas($this->tableName, [
+            'id'         => 1,
+            'deleted_at' => null,
+        ]);
+    }
+
+    public function testPermanent{{Dummy}}(): void
+    {
+
+        $this->actingAs(User::factory()->create());
+
+        {{DummyModel}}::factory()->create();
+
+        $this->json('DELETE', $this->endpoint.'/1')
+             ->assertStatus(204);
+
+        $this->json('DELETE', $this->endpoint.'/1/permanent-delete')
+             ->assertStatus(204);
+
+        $this->assertDatabaseMissing($this->tableName, ['id' => 1]);
+    }@endif('soft-delete')
+}
