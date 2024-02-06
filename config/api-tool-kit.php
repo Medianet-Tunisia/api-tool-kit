@@ -15,6 +15,7 @@ return [
     |
     */
     'default_generates' => [
+        'policy',
         'seeder',
         'controller',
         'request',
@@ -85,6 +86,11 @@ return [
                 'folder_path' => app_path('Models'),
                 'file_name' => '{ModelName}.php',
                 'namespace' => 'App\Models',
+            ],
+            GeneratorFilesType::POLICY => [
+                'folder_path' => app_path('Policies'),
+                'file_name' => '{ModelName}Policy.php',
+                'namespace' => 'App\Policies',
             ],
             GeneratorFilesType::FACTORY => [
                 'folder_path' => database_path('factories'),

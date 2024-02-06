@@ -12,11 +12,18 @@ use Illuminate\Http\Request;
 @if('resource')use {{DummyResourceWithNameSpace}};@endif('resource')
 use {{DummyModelWithNameSpace}};
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Medianet\APIToolKit\Api\ApiResponse;
 
 class {{DummyController}} extends Controller
 {
-    public function index()@if('resource'): AnonymousResourceCollection @endif('resource')
+    use ApiResponse;
+
+    public function __construct()
+    {
+        $this->authorizeResource({{DummyModel}}::class, '{{dummy}}');
+    }
+    
+    public function index(): JsonResponse
     {
         ${{dummies}} = {{DummyModel}}::@if('filter')useFilters()->@endif('filter')dynamicPaginate();
 

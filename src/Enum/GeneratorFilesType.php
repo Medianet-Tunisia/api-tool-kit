@@ -25,4 +25,6 @@ class GeneratorFilesType extends Enum
     public const CREATE_REQUEST = 'create-request';
 
     public const UPDATE_REQUEST = 'update-request';
+
+    public const POLICY = 'policy';
 }

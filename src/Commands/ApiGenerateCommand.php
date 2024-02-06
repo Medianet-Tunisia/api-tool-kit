@@ -147,6 +147,7 @@ class ApiGenerateCommand extends Command
             ['all', null, InputOption::VALUE_NONE, 'Generate a migration, seeder, factory, policy, resource controller, and form request classes for the model'],
             ['routes', null, InputOption::VALUE_NONE, 'Generate routes for the crud operations'],
             ['soft-delete', null, InputOption::VALUE_NONE, 'Generate soft delete functionality for the model'],
+            ['policy', 'p', InputOption::VALUE_NONE, 'Generate policy for the crud operations'],
             ['controller', 'c', InputOption::VALUE_NONE, 'Create a new controller for the model'],
             ['factory', 'f', InputOption::VALUE_NONE, 'Create a new factory for the model'],
             ['filter', 'F', InputOption::VALUE_NONE, 'Create a new filter for the model'],

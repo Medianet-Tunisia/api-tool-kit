@@ -23,6 +23,7 @@ return [
         GeneratorFilesType::FILTER => Medianet\APIToolKit\Generator\Commands\FilterGeneratorCommand::class,
         GeneratorFilesType::MIGRATION => Medianet\APIToolKit\Generator\Commands\MigrationGeneratorCommand::class,
         GeneratorFilesType::ROUTES => Medianet\APIToolKit\Generator\Commands\RoutesGeneratorCommand::class,
+        GeneratorFilesType::POLICY => Medianet\APIToolKit\Generator\Commands\PolicyGeneratorCommand::class,
     ],
     /*
     |--------------------------------------------------------------------------
