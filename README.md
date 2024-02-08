@@ -17,10 +17,14 @@ composer require medianet-dev/api-tool-kit
 The API Response feature simplifies generating consistent JSON responses. It provides a standardized format for your api responses:
 ```json
 {
-  "message": "your resource successfully",
-  "data": [
-    ...
-  ]
+    "base_url": "APP_URL",
+    "status": true,
+    "message": "OK",
+    "status_code": 200,
+    "message": "your message",
+    "data": [
+      ...
+    ]
 }
 ```
 ### Pagination Done Right
@@ -75,14 +79,6 @@ class UserTypes extends Enum
     public const STUDENT = 'student';
 }
 ```
-
-## Official Documentation
-Access our documentation to unlock the full potential of the Laravel API Toolkit:
-
-[Explore the Documentation](https://laravelapitoolkit.com/)
-
-## Contributing
-We welcome your contributions to help make this package even better. Please refer to our [CONTRIBUTING.md](CONTRIBUTING.md) file for contribution guidelines.
 
 ## License
 
