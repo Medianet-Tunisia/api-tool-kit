@@ -73,7 +73,7 @@ class {{DummyTest}} extends TestCase
         {{DummyModel}}::factory()->create();
 
         $this->json('DELETE', $this->endpoint.'/1')
-             ->assertStatus(204);
+             ->assertStatus(200);
 
         $this->assertEquals(0, {{DummyModel}}::count());
     }
@@ -85,7 +85,7 @@ class {{DummyTest}} extends TestCase
         {{DummyModel}}::factory()->create();
 
         $this->json('DELETE', $this->endpoint.'/1')
-             ->assertStatus(204);
+             ->assertStatus(200);
 
         $this->json('GET', $this->endpoint.'/1/restore')
              ->assertStatus(200);
@@ -104,10 +104,10 @@ class {{DummyTest}} extends TestCase
         {{DummyModel}}::factory()->create();
 
         $this->json('DELETE', $this->endpoint.'/1')
-             ->assertStatus(204);
+             ->assertStatus(200);
 
         $this->json('DELETE', $this->endpoint.'/1/permanent-delete')
-             ->assertStatus(204);
+             ->assertStatus(200);
 
         $this->assertDatabaseMissing($this->tableName, ['id' => 1]);
     }@endif('soft-delete')

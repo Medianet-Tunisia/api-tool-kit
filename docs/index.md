@@ -91,7 +91,7 @@ Available Methods
 
 responseSuccess($message , $data)  // returns a 200 HTTP status code
 responseCreated($message,$data)  // returns a 201 HTTP status code 
-responseDeleted()  // returns an empty response with a 204 HTTP status code
+responseDeleted()  // returns an empty response with a 200 HTTP status code
 responseNotFound($errorDetails,$errorTitle)  // returns a 404 HTTP status code
 responseBadRequest($errorDetails,$errorTitle)  // returns a 400 HTTP status code
 responseUnAuthorized($errorDetails,$errorTitle)  // returns a 403 HTTP status code

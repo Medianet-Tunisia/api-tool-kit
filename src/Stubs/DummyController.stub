@@ -53,7 +53,7 @@ class {{DummyController}} extends Controller
     {
         ${{dummy}}->delete();
 
-        return $this->responseApiKit(204, [],'{{Dummy}} deleted Successfully');
+        return $this->responseApiKit(200, [],'{{Dummy}} deleted Successfully');
     }
 
    @if('soft-delete') public function restore($id): JsonResponse
@@ -62,7 +62,7 @@ class {{DummyController}} extends Controller
 
         ${{dummy}}->restore();
 
-        return $this->responseApiKit(204, [],'{{Dummy}} restored Successfully.');
+        return $this->responseApiKit(200, [],'{{Dummy}} restored Successfully.');
     }
 
     public function permanentDelete($id): JsonResponse
@@ -71,7 +71,7 @@ class {{DummyController}} extends Controller
 
         ${{dummy}}->forceDelete();
 
-        return $this->responseApiKit(204, [],'{{Dummy}} deleted Successfully.');
+        return $this->responseApiKit(200, [],'{{Dummy}} deleted Successfully.');
     }
 @endif('soft-delete')
 }
