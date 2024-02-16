@@ -34,4 +34,36 @@ trait ApiResponse
 
         return response()->json($response, $status);
     }
+
+    /**
+     * Get pagination details of a collection.
+     *
+     * @param Collection $collection collection
+     *
+     * @return array
+     */
+    function getResourceData($collection, $resource)
+    {
+        if ('none' === request()->get('pagination')) {
+            return $resource::collection($collection);
+        }
+
+        $currentPage = $collection->currentPage();
+        $lastPage = $collection->lastPage();
+
+        return [
+            'items' => $resource::collection($collection),
+            'current_page' => $currentPage,
+            'from' => $collection->firstItem(),
+            'to' => $collection->lastItem(),
+            'total' => $collection->total(),
+            'first_page_url' => $collection->url(1),
+            'last_page' => $lastPage,
+            'last_page_url' => $collection->url($lastPage),
+            'next_page_url' => $collection->nextPageUrl(),
+            'path' => $collection->url($currentPage),
+            'per_page' => $collection->perPage(),
+            'prev_page_url' => $collection->previousPageUrl(),
+        ];
+    }
 }

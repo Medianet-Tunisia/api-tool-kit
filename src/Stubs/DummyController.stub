@@ -27,7 +27,7 @@ class {{DummyController}} extends Controller
     {
         ${{dummies}} = {{DummyModel}}::@if('filter')useFilters()->@endif('filter')dynamicPaginate();
 
-        return $this->responseApiKit(200, ['{{dummies}}' => @if('resource'){{DummyResource}}::collection(@endif('resource')${{dummies}}@if('resource'))@endif('resource')]);
+        return $this->responseApiKit(200, ['{{dummies}}' => @if('resource')$this->getResourceData(${{dummies}}, {{DummyResource}}::class)@endif('resource')]);
     }
 
     public function store(@if('request'){{DummyCreateRequest}} @else Request @endif('request') $request): JsonResponse
