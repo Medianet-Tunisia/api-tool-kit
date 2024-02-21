@@ -46,7 +46,7 @@ class StubVariablesProvider
         return [
             '{{Dummy}}' => $modelName,
             '{{Dummies}}' => Str::plural($modelName),
-            '{{dummy}}' => lcfirst($modelName),
+            '{{dummy}}' => Str::singular(Str::snake($modelName, '_')),
             '{{dummies}}' => Str::plural(Str::snake($modelName)),
             '{{dummyPolicy}}' => Str::singular(Str::snake($modelName, '_')),
             '{{dummiesRoute}}' => Str::plural(Str::snake($modelName, '-')),
