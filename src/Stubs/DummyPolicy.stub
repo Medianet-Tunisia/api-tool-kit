@@ -11,7 +11,7 @@ class {{DummyPolicy}}
      */
     public function viewAny($user): bool
     {
-        return $user->can('{{dummy}}-index');
+        return $user->can('{{dummyPolicy}}-index');
     }
 
     /**
@@ -19,7 +19,7 @@ class {{DummyPolicy}}
      */
     public function view($user, {{DummyModel}} ${{dummy}}): bool
     {
-        return $user->can('{{dummy}}-show');
+        return $user->can('{{dummyPolicy}}-show');
     }
 
     /**
@@ -27,7 +27,7 @@ class {{DummyPolicy}}
      */
     public function create($user): bool
     {
-        return $user->can('{{dummy}}-create');
+        return $user->can('{{dummyPolicy}}-create');
     }
 
     /**
@@ -35,7 +35,7 @@ class {{DummyPolicy}}
      */
     public function update($user, {{DummyModel}} ${{dummy}}): bool
     {
-        return $user->can('{{dummy}}-update');
+        return $user->can('{{dummyPolicy}}-update');
     }
 
     /**
@@ -43,7 +43,7 @@ class {{DummyPolicy}}
      */
     public function delete($user, {{DummyModel}} ${{dummy}}): bool
     {
-        return $user->can('{{dummy}}-delete');
+        return $user->can('{{dummyPolicy}}-delete');
     }
 
     /**
@@ -51,7 +51,7 @@ class {{DummyPolicy}}
      */
     public function restore($user, {{DummyModel}} ${{dummy}}): bool
     {
-        return $user->can('{{dummy}}-restore');
+        return $user->can('{{dummyPolicy}}-restore');
     }
 
     /**
@@ -59,6 +59,6 @@ class {{DummyPolicy}}
      */
     public function forceDelete($user, {{DummyModel}} ${{dummy}}): bool
     {
-        return $user->can('{{dummy}}-forceDelete');
+        return $user->can('{{dummyPolicy}}-forceDelete');
     }
 }

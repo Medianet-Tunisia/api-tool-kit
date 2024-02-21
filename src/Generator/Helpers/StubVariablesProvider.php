@@ -48,6 +48,7 @@ class StubVariablesProvider
             '{{Dummies}}' => Str::plural($modelName),
             '{{dummy}}' => lcfirst($modelName),
             '{{dummies}}' => Str::plural(Str::snake($modelName)),
+            '{{dummyPolicy}}' => Str::plural(Str::snake($modelName, '_')),
             '{{dummiesRoute}}' => Str::plural(Str::snake($modelName, '-')),
         ];
     }

@@ -20,7 +20,7 @@ class {{DummyController}} extends Controller
 
     public function __construct()
     {
-        $this->authorizeResource({{DummyModel}}::class, '{{dummy}}');
+        $this->authorizeResource({{DummyModel}}::class, '{{dummyPolicy}}');
     }
     
     public function index(): JsonResponse
